@@ -1,25 +1,11 @@
-SHELL      = /bin/sh
-CXX        = g++
-CXXFLAGS   = -Wall -Werror -O3 -std=c++11
-LD         = g++
-LDFLAGS    =
+BUILD_DIR=build
 
-TARGET     = ./eckert
-SOURCE_DIR = ./src/
+.PHONY: all clean
 
-SOURCES    = $(shell find $(SOURCE_DIR) -type f -name '*.cpp')
-OBJECTS    = $(patsubst %.cpp,%.o,$(SOURCES))
-
-
-all: $(TARGET)
-
-$(TARGET): $(OBJECTS) $(COMMON)
-	$(LD) -o$(TARGET) $(OBJECTS)
-
-.c.o:
-	$(CXX) -c $< $(CXXFLAGS)
-
-.PHONY: clean
+all:
+	mkdir -p $(BUILD_DIR)
+	cmake -S . -B $(BUILD_DIR) -DCMAKE_BUILD_TYPE=Release -G Ninja
+	cmake --build $(BUILD_DIR)
 
 clean:
-	rm -rf $(OBJECTS) $(TARGET)
+	rm -rf $(BUILD_DIR)
