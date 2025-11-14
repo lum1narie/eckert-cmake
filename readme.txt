@@ -1,4 +1,13 @@
-﻿ECKERT readme
+﻿本リポジトリは、Yuishin Kikuchi氏のEckertリポジトリに、以下の機能を追加したものである。
+
+- CMakeによるビルド
+- Nix flakeによる管理
+
+以下、元リポジトリのREADMEを記す。
+
+---
+
+ECKERT readme
 
 ■ソフトウェアの名前
     Engineering Calculator with KEyboard and Refined Tools
