@@ -22,6 +22,8 @@
           installPhase = ''
             mkdir -p $out/bin
             cp eckert $out/bin/
+            mkdir -p $out/share/doc
+            cp -r ${self}/doc/. $out/share/doc/
           '';
         };
       in
